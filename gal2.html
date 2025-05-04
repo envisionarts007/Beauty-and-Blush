@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeautynBlush</title>
+    <link rel="icon" href="./logo (2).png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #171717;
+        }
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .nav h4 {
+            color: rgb(255, 255, 255);
+            margin: 10px 15px;
+            cursor: pointer;
+        }
+        .nav h4:hover {
+            text-decoration: underline;
+        }
+        .nav .button {
+            margin-left: auto;
+        }
+        .button .btn {
+            background-color: #edbf6d;
+            border-radius: 40px;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
+        .title h1 {
+            font-family: 'Tangerine', cursive;
+            font-size: 8vw;
+            color: white;
+            text-align: center;
+        }
+        .title h4 {
+            font-family: 'Tangerine', cursive;
+            font-size: 5vw;
+            color: white;
+            text-align: center;
+            margin-top: -10px;
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .logo-container img {
+            max-width: 90%;
+            height: 288px;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav h4 {
+                margin: 5px 0;
+            }
+            .button .btn {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+            .title h1 {
+                font-size: 10vw;
+            }
+            .title h4 {
+                font-size: 6vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav {
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 250px;
+                height: 100%;
+                background-color: #171717;
+                padding: 20px;
+                z-index: 1000;
+            }
+            .nav.active {
+                display: flex;
+                margin-top: 55px;
+            }
+            .nav h4 {
+                font-size: 14px;
+                margin: 10px 0;
+            }
+            .button .btn {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+            .title h1 {
+                font-size: 12vw;
+            }
+            .title h4 {
+                font-size: 7vw;
+            }
+            .menu-toggle {
+                display: block;
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                background-color: #edbf6d;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                cursor: pointer;
+                z-index: 1100;
+            }
+        }
+
+        @media (min-width: 481px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+    </style>
+    <script>
+        function smoothScroll(event, target) {
+            event.preventDefault();
+            const element = document.querySelector(target);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+    </script>
+        
+
+</head>
+<body>
+    <button class="menu-toggle">☰</button>
+    <div class="nav">
+        <h4><a href="./index.html#home" style="color: inherit; text-decoration: none;">HOME</a></h4>
+        <h4><a href="./index.html#about" style="color: inherit; text-decoration: none;">ABOUT</a></h4>
+        <h4><a href="./services.html" style="color: inherit; text-decoration: none;">OUR SERVICES</a></h4>
+        <h4><a href="./gal2.html" style="color: inherit; text-decoration: none;">GALLERY</a></h4>
+        <h4><a href="./index.html#why-choose-us" style="color: inherit; text-decoration: none;">WHY CHOOSE US?</a></h4>
+        <h4><a href="./index.html#contact" style="color: inherit; text-decoration: none;">CONTACT US</a></h4>
+        <div class="button" style="text-align: center;">
+            <!-- Google Calendar Appointment Scheduling begin -->
+            <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+            <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+            <script>
+            (function() {
+            var target = document.currentScript;
+            window.addEventListener('load', function() {
+            const isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                const button = document.createElement('button');
+                button.textContent = 'Book Now';
+                button.style.cssText = `
+                background-color: #edbf6d;
+                color: black;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-weight: bold;
+                `;
+                button.addEventListener('click', function() {
+                window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ2R9Mo9TRRFMxcR-O4XakeoXjknQoq2M9F64GTQKyHWHs_dbnPwT3ufpcfWq7nXTyJi-IGTVLcB?gv=true', '_blank');
+                });
+                target.parentElement.appendChild(button);
+            } else {
+                calendar.schedulingButton.load({
+                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2R9Mo9TRRFMxcR-O4XakeoXjknQoq2M9F64GTQKyHWHs_dbnPwT3ufpcfWq7nXTyJi-IGTVLcB?gv=true',
+                color: '#edbf6d',
+                label: 'Book Now',
+                target,
+                });
+            }
+            });
+            })();
+            </script>
+            <!-- end Google Calendar Appointment Scheduling -->
+        
+        </div>
+        <script>
+            // Toggle the menu visibility
+            function toggleMenu() {
+                const nav = document.querySelector('.nav');
+                nav.classList.toggle('active');
+            }
+
+            // Add event listener to close the menu when a link is clicked
+            document.querySelectorAll('.nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    const nav = document.querySelector('.nav');
+                    nav.classList.remove('active');
+                });
+            });
+
+            // Add event listener to the menu toggle button
+            const menuToggle = document.querySelector('.menu-toggle');
+            menuToggle.addEventListener('click', toggleMenu);
+
+            // Close the menu when clicking outside of it
+            window.addEventListener('click', (event) => {
+            const nav = document.querySelector('.nav');
+            if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+                nav.classList.remove('active');
+            }
+            });
+
+        </script>
+        
+        
+    </div>
+
+    <div class="title">
+        <h1>GALLERY</h1>
+    </div>
+
+    <div class="gallery-container">
+        <div class="filters">
+            <button onclick="filterImages('all')">All</button>
+            <button onclick="filterImages('bridal')">Bridal Makeup</button>
+            <button onclick="filterImages('party')">Party Makeup</button>
+            <button onclick="filterImages('hairstyle')">Hairstyle</button>
+            <button onclick="filterImages('others')">Others</button>
+
+        </div>
+        <div class="image-grid">
+            <div class="image-card" data-category="bridal">
+                <img src="./Bridal Makeup/Scanned_20250419-1449-01.jpg" alt="Bridal Makeup 1" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="party">
+                <img src="./Party Makeup/Scanned_20250419-1450-01.jpg" alt="Party Makeup 1" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="hairstyle">
+                <img src="./Hairstyle/Bun-for-Short-Hair-Indian.jpg" alt="Casual Makeup 1" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="bridal">
+                <img src="./Bridal Makeup/122388-hairstyles-for-women-himanshu-gupta-makeup-artist.jpeg" alt="Bridal Makeup" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="party">
+                <img src="./Party Makeup/Scanned_20250419-1450-03.jpg" alt="Casual Makeup 1" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="hairstyle">
+                <img src="./Hairstyle/48fa7db1b0ecf464a4bddf7971a906db.jpg" alt="Casual Makeup 1" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="bridal">
+                <img src="./Bridal Makeup/Scanned_20250419-1449-03.jpg" alt="Bridal Makeup" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="party">
+                <img src="./Party Makeup/Scanned_20250419-1450-04.jpg" alt="Casual Makeup 1" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="hairstyle">
+                <img src="./Hairstyle/Scanned_20250419-1450-01.jpg" alt="Casual Makeup 1" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="bridal">
+                <img src="./Bridal Makeup/Scanned_20250419-1449-04.jpg" alt="Bridal Makeup" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="party">
+                <img src="./Party Makeup/Scanned_20250419-1450-05.jpg" alt="Casual Makeup 1" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="hairstyle">
+                <img src="./Hairstyle/Scanned_20250419-1450-02.jpg" alt="Casual Makeup 1" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="bridal">
+                <img src="./Bridal Makeup/Scanned_20250419-1449-05.jpg" alt="Bridal Makeup" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="party">
+                <img src="./Party Makeup/Scanned_20250419-1450-06.jpg" alt="Casual Makeup 1" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="bridal">
+                <img src="./Bridal Makeup/Scanned_20250419-1449-12.jpg" alt="Bridal Makeup" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="bridal">
+                <img src="./Bridal Makeup/Scanned_20250419-1449-06.jpg" alt="Bridal Makeup" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="party">
+                <img src="./Party Makeup/Scanned_20250419-1450-08.jpg" alt="Casual Makeup 1" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="others">
+                <img src="./services/85a4c4351145752c0f582461d69d007b.jpg" alt="others" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="bridal">
+                <img src="./Bridal Makeup/Scanned_20250419-1449-08.jpg" alt="Bridal Makeup" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="bridal">
+                <img src="./Bridal Makeup/Scanned_20250419-1449-09.jpg" alt="Bridal Makeup" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="others">
+                <img src="./services/pecock-mehndi-design.jpg" alt="others" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="others">
+                <img src="./OIP.jpeg" alt="others" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="bridal">
+                <img src="./Bridal Makeup/Scanned_20250419-1449-13.jpg" alt="Bridal Makeup" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="hairstyle">
+                <img src="./Hairstyle/vaishuzaara-makeupartist1-819x1024.jpg" alt="Casual Makeup 1" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="others">
+                <img src="./R.jpeg" alt="others" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="others">
+                <img src="./services/threading.jpeg" alt="others" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="others">
+                <img src="./services/facial.jpeg" alt="others" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="others">
+                <img src="./services/OIP (1).jpeg" alt="others" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="others">
+                <img src="./services/OIP (2).jpeg" alt="others" onclick="openImage(this)">
+            </div>
+            <div class="image-card" data-category="hairstyle">
+                <img src="./Hairstyle/aasif-hair-studio-mohali-unnamed.png" alt="hairstyle" onclick="openImage(this)">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="popup" id="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <button class="prev" onclick="prevImage()">&#10094;</button>
+        <img id="popup-img" src="" alt="Popup Image">
+        <button class="next" onclick="nextImage()">&#10095;</button>
+    </div>
+
+    <style>
+        .gallery-container {
+            text-align: center;
+            margin: 20px;
+        }
+        .filters button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #edbf6d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .filters button:hover {
+            background-color: #d9a85c;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 10px;
+        }
+        .image-card {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; /* Aspect ratio 1:1 */
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .image-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .image-card img:hover {
+            transform: scale(1.05);
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .popup img {
+            max-width: 90%;
+            max-height: 80%;
+        }
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        .popup .prev, .popup .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .popup .prev {
+            left: 20px;
+        }
+        .popup .next {
+            right: 20px;
+        }
+    </style>
+
+    <script>
+        let currentImageIndex = 0;
+        let filteredImages = [];
+        const images = document.querySelectorAll('.image-card img');
+
+        function openImage(img) {
+            const popup = document.getElementById('popup');
+            const popupImg = document.getElementById('popup-img');
+            popup.style.display = 'flex';
+            popupImg.src = img.src;
+            currentImageIndex = filteredImages.indexOf(img);
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + filteredImages.length) % filteredImages.length;
+            document.getElementById('popup-img').src = filteredImages[currentImageIndex].src;
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % filteredImages.length;
+            document.getElementById('popup-img').src = filteredImages[currentImageIndex].src;
+        }
+
+        function filterImages(category) {
+            const cards = document.querySelectorAll('.image-card');
+            filteredImages = [];
+            cards.forEach(card => {
+                const img = card.querySelector('img');
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    filteredImages.push(img);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize filteredImages with all images on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            filteredImages = Array.from(images);
+        });
+    </script>
+
+<footer style="background-color: #edbf6d; padding: 20px 0; color: black; text-align: center;">
+    <div style="margin-bottom: 20px;">
+        <img src="./Beauty & Blush (1).png" alt="Salon Logo" style="height: 100px; width: 100px; border-radius: 50%; object-fit: cover;">
+    </div>
+    <div style="margin-bottom: 20px;">
+        <a href="./index.html#home" style="color: inherit; text-decoration: none; margin: 0 20px;">HOME</a>
+        <a href="./index.html#about" style="color: inherit; text-decoration: none; margin: 0 20px;">ABOUT</a>
+        <a href="./services.html" style="color: inherit; text-decoration: none; margin: 0 20px;">OUR SERVICES</a>
+        <a href="./gal2.html" style="color: inherit; text-decoration: none; margin: 0 20px;">GALLERY</a>
+        <a href="./index.html#contact" style="color: inherit; text-decoration: none; margin: 0 20px;">CONTACT US</a>
+    </div>
+    <div style="margin-bottom: 20px;">
+        <div class="button" style="border: 2px solid black;">
+            <!-- Google Calendar Appointment Scheduling begin -->
+            <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+            <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+            <script>
+            (function() {
+            var target = document.currentScript;
+            window.addEventListener('load', function() {
+            const isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                const button = document.createElement('button');
+                button.textContent = 'Book Now';
+                button.style.cssText = `
+                background-color: #edbf6d;
+                color: black;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-weight: bold;
+                `;
+                button.addEventListener('click', function() {
+                window.open('https://calendar.google.com/calendar/appointments/schedules/AcZssZ2R9Mo9TRRFMxcR-O4XakeoXjknQoq2M9F64GTQKyHWHs_dbnPwT3ufpcfWq7nXTyJi-IGTVLcB?gv=true', '_blank');
+                });
+                target.parentElement.appendChild(button);
+            } else {
+                calendar.schedulingButton.load({
+                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2R9Mo9TRRFMxcR-O4XakeoXjknQoq2M9F64GTQKyHWHs_dbnPwT3ufpcfWq7nXTyJi-IGTVLcB?gv=true',
+                color: '#edbf6d',
+                label: 'Book Now',
+                target,
+                });
+            }
+            });
+            })();
+            </script>
+            <!-- end Google Calendar Appointment Scheduling -->
+        </div>
+    </div>
+    <div>
+        <a href="https://www.facebook.com/MuaPoonamGupta?rdid=4DlRU8SPYy7qW6dH&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BgCzU7mFJ%2F#" target="_blank" style="margin: 0 10px;">
+            <img src="./facebook.svg" alt="Facebook" style="height: 30px;">
+        </a>
+        <a href="https://www.instagram.com/beauty_and_blush_makeup?igsh=MXhtOGJ6dDdrazMxNg%3D%3D" target="_blank" style="margin: 0 10px;">
+            <img src="./instagram.svg" alt="Instagram" style="height: 30px;">
+        </a>
+        <a href="https://www.threads.net/@beauty_and_blush_makeup?xmt=AQGz4YJX_I8of2i8YvQgF8Fxq5WZc1ifZfXNyuFYj97igIA" target="_blank" style="margin: 0 10px;">
+            <img src="./threads.svg" alt="Twitter" style="height: 30px;">
+        </a>
+    </div>
+    <p style="margin-top: 20px; font-size: 14px;">&copy; 2025 Beauty & Blush. All rights reserved.</p>
+</footer>
+
+
+</body>
+</html>
